@@ -10,16 +10,16 @@
 //     });
 // });
 
-$("#search-button").on("click", function() {
+$("#search-button").on("click", function () {
     let city = $("#search-input").val();
     $.ajax({
         url: "http://api.openweathermap.org/geo/1.0/direct",
         method: "GET",
         data: {
-           key: "0116efa5772e70096506b1a5c5e2d55b",
-           q: city
+            key: "0116efa5772e70096506b1a5c5e2d55b",
+            q: city
         },
-        success: function(location) {
+        success: function (location) {
             let lat = location.results[0].geometry.lat;
             let lng = location.results[0].geometry.lat;
 
@@ -31,16 +31,15 @@ $("#search-button").on("click", function() {
                     lon: lng,
                     appid: "0116efa5772e70096506b1a5c5e2d55b"
                 },
-                success: function(weather) {
-                    
+                success: function (weather) {
+                console.log(weather)
                 }
             })
         }
-        
-        })
 
     })
-})
+
+});
 
 
 
