@@ -14,7 +14,7 @@ $("#search-button").on("click", function (event) {
     event.preventDefault()
     let city = $("#search-input").val();
     $.ajax({
-        url: "http://api.openweathermap.org/geo/1.0/direct?q=city name,state code,country code&limit=limit" + apiKey,
+        url: "http://api.openweathermap.org/geo/1.0/direct?q=" + city + apiKey,
         method: "GET",
         data: {
             key: "0116efa5772e70096506b1a5c5e2d55b",
@@ -25,7 +25,7 @@ $("#search-button").on("click", function (event) {
             let lng = location.results[0].geometry.lat;
 
             $.ajax({
-                url: "api.openweathermap.org/data/2.5/forecast?lat=lat&lon=lon" + apiKey,
+                url: "api.openweathermap.org/data/2.5/forecast?" + lat + lng + apiKey,
                 method: "GET",
                 data: {
                     lat: lat,
