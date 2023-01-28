@@ -1,5 +1,5 @@
 // $("#search-input").on("click", function (event) {
-//     let weatherAPI = "0116efa5772e70096506b1a5c5e2d55b"
+    let apiKey = "0116efa5772e70096506b1a5c5e2d55b"
 //     let queryURL = "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0116efa5772e70096506b1a5c5e2d55b"
 
 //     $.ajax({
@@ -10,10 +10,11 @@
 //     });
 // });
 
-$("#search-button").on("click", function () {
+$("#search-button").on("click", function (event) {
+    event.preventDefault()
     let city = $("#search-input").val();
     $.ajax({
-        url: "http://api.openweathermap.org/geo/1.0/direct",
+        url: "http://api.openweathermap.org/geo/1.0/direct?q=city name,state code,country code&limit=limit" + apiKey,
         method: "GET",
         data: {
             key: "0116efa5772e70096506b1a5c5e2d55b",
@@ -24,7 +25,7 @@ $("#search-button").on("click", function () {
             let lng = location.results[0].geometry.lat;
 
             $.ajax({
-                url: "api.openweathermap.org/data/2.5/forecast",
+                url: "api.openweathermap.org/data/2.5/forecast?lat=lat&lon=lon" + apiKey,
                 method: "GET",
                 data: {
                     lat: lat,
@@ -34,10 +35,10 @@ $("#search-button").on("click", function () {
                 success: function (weather) {
                 console.log(weather)
                 }
-            })
+            });
         }
 
-    })
+    });
 
 });
 
