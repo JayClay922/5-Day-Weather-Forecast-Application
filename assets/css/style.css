@@ -1,5 +1,39 @@
+
+
+#search-button {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    background-color: rgb(64, 79, 175);
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+    align-items: center;
+    float: left;
+}
+
 .locationHistory {
     display: flex;
     flex-direction: column;
     margin: 5px;
+    background-color: grey;
+    color: black;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 200px;
+    align-items: center;
 }
+
+  
+.locationHistory:hover {
+    background-color: rgb(64, 79, 175);
+    color: white;
+  }
+  
