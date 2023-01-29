@@ -3,12 +3,12 @@ let popularLocations = ["New York", "London", "Paris", "Tokyo"];
 
 //Function for displaying the locations buttons
 function renderButtons() {
-    for(i = 0; i < popularLocations.length; i++) {
-       let history = $("<button>");
-       history.addClass("locationHistory");
-       history.attr("data-name", popularLocations[i]);
-       history.text(popularLocations[i]);
-       $("#sideBar").append(history)
+    for (i = 0; i < popularLocations.length; i++) {
+        let history = $("<button>");
+        history.addClass("locationHistory");
+        history.attr("data-name", popularLocations[i]);
+        history.text(popularLocations[i]);
+        $("#sideBar").append(history)
     }
 };
 
@@ -22,7 +22,7 @@ let apiKey = "0116efa5772e70096506b1a5c5e2d55b"
 //Adding event listener for when the button with the ID of 'search-button' is clicked.
 $("#search-button").on("click", function (event) {
     event.preventDefault();
-    
+
     //Getting the value of what the user inputs by targetting the ID of the search input area.
     let city = $("#search-input").val().trim();
 
@@ -38,7 +38,7 @@ $("#search-button").on("click", function (event) {
     }).then(function (location) {
         let lat = location[0].lat
         let lng = location[0].lon
-        
+
 
         //Another API call requesting weather information of the location with the longitude and latitude retrieved by first API call.
         $.ajax({
@@ -46,7 +46,21 @@ $("#search-button").on("click", function (event) {
             lat: lat,
             lon: lng,
         }).then(function (weatherResults) {
-            
+            let cityName = weatherResults.city.name;
+            let date = moment(weatherResults.list[0].dt_txt).format("DD/MM/YYYY");
+            let iconCode = weatherResults.list[0].weather[0].icon;
+            let iconUrl = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+            let temperature = weatherResults.list[0].main.temp - 273.15;
+            let humidity = weatherResults.list[0].main.humidity;
+            let windSpeed = weatherResults.list[0].wind.speed;
+            console.log(date)
+            console.log(iconCode)
+            console.log(iconUrl)
+            console.log(temperature)
+            console.log(humidity)
+            console.log(windSpeed)
+
+
         })
     });
 })
