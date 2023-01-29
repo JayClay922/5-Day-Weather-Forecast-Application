@@ -1,47 +1,25 @@
-// $("#search-input").on("click", function (event) {
-    let apiKey = "0116efa5772e70096506b1a5c5e2d55b"
-//     let queryURL = "api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=0116efa5772e70096506b1a5c5e2d55b"
-
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     }).then(function (response) {
-//         console.log(queryURL)
-//     });
-// });
+let apiKey = "0116efa5772e70096506b1a5c5e2d55b"
 
 $("#search-button").on("click", function (event) {
-    event.preventDefault()
+    event.preventDefault();
     let city = $("#search-input").val();
     $.ajax({
-        url: "http://api.openweathermap.org/geo/1.0/direct?q=" + city + apiKey,
+        url: "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey,
         method: "GET",
-        data: {
-            key: "0116efa5772e70096506b1a5c5e2d55b",
-            q: city
-        },
-        success: function (location) {
-            let lat = location.results[0].geometry.lat;
-            let lng = location.results[0].geometry.lat;
+        q: city
+    }).then(function (location) {
+        let lat = location.results[0].geometry.lat;
+        let lng = location.results[0].geometry.lng;
 
-            $.ajax({
-                url: "api.openweathermap.org/data/2.5/forecast?" + lat + lng + apiKey,
-                method: "GET",
-                data: {
-                    lat: lat,
-                    lon: lng,
-                    appid: "0116efa5772e70096506b1a5c5e2d55b"
-                },
-                success: function (weather) {
-                console.log(weather)
-                }
-            });
-        }
-
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/forecast?" + "lat=" + lat + "&lon=" + lng + "&appid=" + apiKey,
+            lat: lat,
+            lon: lng,
+        }).then(function (weather) {
+            console.log(weather)
+        })
     });
-
-});
-
+})
 
 
 
