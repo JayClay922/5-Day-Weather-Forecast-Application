@@ -1,4 +1,6 @@
-
+#search-input {
+    width: 210px;
+}
 
 #search-button {
     display: flex;
@@ -31,7 +33,6 @@
     align-items: center;
 }
 
-  
 .locationHistory:hover {
     background-color: rgb(64, 79, 175);
     color: white;
