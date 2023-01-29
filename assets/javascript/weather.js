@@ -16,7 +16,6 @@ $("#search-button").on("click", function (event) {
         let lat = location[0].lat
         let lng = location[0].lon
         console.log(location)
-        v
 
         //Another API call requesting weather information of the location with the longitude and latitude retrieved by first API call.
         $.ajax({
