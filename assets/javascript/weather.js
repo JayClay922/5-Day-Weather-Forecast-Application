@@ -1,5 +1,7 @@
+//Array of popular locations.
 let popularLocations = ["New York", "London", "Paris", "Tokyo"];
 
+//Function for displaying the locations buttons
 function renderButtons() {
     for(i = 0; i < popularLocations.length; i++) {
        let history = $("<button>");
@@ -24,6 +26,7 @@ $("#search-button").on("click", function (event) {
     //Getting the value of what the user inputs by targetting the ID of the search input area.
     let city = $("#search-input").val().trim();
 
+    //To push last location entered in the search input to the list of popular locations till browser is refreshed.
     popularLocations.push(city);
     renderButtons();
 
