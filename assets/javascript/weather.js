@@ -8,15 +8,16 @@ $("#search-button").on("click", function (event) {
         method: "GET",
         q: city
     }).then(function (location) {
-        let lat = location.results[0].geometry.lat;
-        let lng = location.results[0].geometry.lng;
+        let lat = location[0].lat
+        let lng = location[0].lon
+        console.log(location)
 
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/forecast?" + "lat=" + lat + "&lon=" + lng + "&appid=" + apiKey,
             lat: lat,
             lon: lng,
-        }).then(function (weather) {
-            console.log(weather)
+        }).then(function (weatherResults) {
+            console.log(weatherResults)
         })
     });
 })
