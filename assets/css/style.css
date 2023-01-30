@@ -53,3 +53,19 @@
     margin-top: 0.25rem;
     margin-left: 1rem;
 }
+
+.cardHeader {
+    background-color: rgb(18, 18, 73);
+    color: white;
+    text-align: center;
+}
+
+.cardBody{
+    background-color: rgb(18, 18, 73);
+    color: white;
+    padding: 0.5px 5px 5px 5px;
+}
+
+.weather-header {
+    background: linear-gradient(to bottom, lightblue, darkblue);
+}
