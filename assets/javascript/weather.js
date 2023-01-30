@@ -50,13 +50,18 @@ $("#search-button").on("click", function (event) {
             let date = moment(weatherResults.list[0].dt_txt).format("DD/MM/YYYY");
             let iconCode = weatherResults.list[0].weather[0].icon;
             let iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
-            let temperature = weatherResults.list[0].main.temp - 273.15;
+            let temperature = parseFloat((weatherResults.list[0].main.temp - 273.15).toFixed(1));
             let humidity = weatherResults.list[0].main.humidity;
             let windSpeed = weatherResults.list[0].wind.speed;
 
             
             $("#today").html(`
-            <h2 class="cityName date">${cityName + ", " + "(" + date + ")"} <img src="${iconUrl}" alt="Sky"></h2>
+            <h2 class="cityName date">${cityName + ", " + "(" + date + ")"} <img id="weatherIcon" src="${iconUrl}" alt="Sky"></h2>
+            <p>Temperature: <span id="temperature">${temperature}</span> °C</p>
+            <p>Wind Speed:  <span id="windSpeed">${windSpeed}</span> KPH</p>
+            <p>Humidity:  <span id="humidity">${humidity}</span>%</p>
+
+
             
             
             
