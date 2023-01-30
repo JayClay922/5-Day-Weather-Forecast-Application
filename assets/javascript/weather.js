@@ -56,7 +56,7 @@ $("#search-button").on("click", function (event) {
 
             
             $("#today").html(`
-            <h2 class="cityName date">${cityName + ", " + "(" + date + ")" + iconCode} </h2>
+            <h2 class="cityName date">${cityName + ", " + "(" + date + ")"} <img src="${iconUrl}" alt="Sky"></h2>
             
             
             
