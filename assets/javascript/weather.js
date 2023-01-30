@@ -49,14 +49,14 @@ $("#search-button").on("click", function (event) {
             let cityName = weatherResults.city.name;
             let date = moment(weatherResults.list[0].dt_txt).format("DD/MM/YYYY");
             let iconCode = weatherResults.list[0].weather[0].icon;
-            let iconUrl = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+            let iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
             let temperature = weatherResults.list[0].main.temp - 273.15;
             let humidity = weatherResults.list[0].main.humidity;
             let windSpeed = weatherResults.list[0].wind.speed;
 
             
             $("#today").html(`
-            <h2 class="cityName date">${cityName + ", " + "(" + date + ")" + iconUrl} </h2>
+            <h2 class="cityName date">${cityName + ", " + "(" + date + ")" + iconCode} </h2>
             
             
             
