@@ -62,7 +62,7 @@ $("#search-button").on("click", function (event) {
             <p>Humidity:  <span id="humidity">${humidity}</span>%</p>
             `)
 
-            
+            $("#forecast").append("<h3>5-Day Forecast</h3>");
 
             for(let i = 0; i < 5; i++) {
                 let day = weatherResults.list[i * 8];
