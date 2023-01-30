@@ -62,6 +62,8 @@ $("#search-button").on("click", function (event) {
             <p>Humidity:  <span id="humidity">${humidity}</span>%</p>
             `)
 
+            
+
             for(let i = 0; i < 5; i++) {
                 let day = weatherResults.list[i * 8];
                 let date = moment(day.dt_txt). format("DD/MM/YYYY");
