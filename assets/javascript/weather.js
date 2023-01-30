@@ -60,24 +60,7 @@ $("#search-button").on("click", function (event) {
             <p>Temperature: <span id="temperature">${temperature}</span> °C</p>
             <p>Wind Speed:  <span id="windSpeed">${windSpeed}</span> KPH</p>
             <p>Humidity:  <span id="humidity">${humidity}</span>%</p>
-
-
-            
-            
-            
             `)
-
-//             $("#today").html(`
-//             <h2 id="city-name">${cityName}</h2>
-//             <p id="date">${date}</p>
-//             <img id="weather-icon" src="${icon}"/>
-//             <p>Temperature: <span id="temperature">${temperature}</span></p>
-//             <p>Humidity: <span id="humidity">${humidity}</span></p>
-//             <p>Wind Speed: <span id="wind-speed">${windSpeed}</span></p>
-// `);
-
-
-
         })
     });
 })
