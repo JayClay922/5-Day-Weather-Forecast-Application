@@ -18,7 +18,12 @@
     float: left;
 }
 
-.locationHistory {
+#history {
+    display: inline;
+    width: fit-content;
+}
+
+.location-history {
     display: flex;
     flex-direction: column;
     margin: 5px;
@@ -46,6 +51,7 @@
 
 .forecastHeading {
     margin-top: 1rem;
+    display: none;
 }
 
 .card {

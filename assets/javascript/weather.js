@@ -1,14 +1,16 @@
 //Array of popular locations.
 let popularLocations = ["New York", "London", "Paris", "Tokyo"];
+let cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || []
 
 //Function for displaying the locations buttons
 function renderButtons() {
+    $("#history").empty()
     for (i = 0; i < popularLocations.length; i++) {
         let history = $("<button>");
-        history.addClass("locationHistory");
+        history.addClass("location-history");
         history.attr("data-name", popularLocations[i]);
         history.text(popularLocations[i]);
-        $("#sideBar").append(history)
+        $("#history").append(history)
     }
 };
 
@@ -18,19 +20,7 @@ function renderButtons() {
 
 
 let apiKey = "0116efa5772e70096506b1a5c5e2d55b"
-
-//Adding event listener for when the button with the ID of 'search-button' is clicked.
-$("#search-button").on("click", function (event) {
-    event.preventDefault();
-
-    //Getting the value of what the user inputs by targetting the ID of the search input area.
-    let city = $("#search-input").val().trim();
-
-    //To push last location entered in the search input to the list of popular locations till browser is refreshed.
-    popularLocations.push(city);
-    renderButtons();
-
-    //Using AJAX to make an API call requesting longitude and latitude of the location inputted by the user.
+function weatherSearch(city) {
     $.ajax({
         url: "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey,
         method: "GET",
@@ -62,7 +52,7 @@ $("#search-button").on("click", function (event) {
             <p>Humidity:  <span id="humidity">${humidity}</span>%</p>
             `)
 
-           
+            $(".forecastHeading").show();
 
             for(let i = 0; i < 5; i++) {
                 let day = weatherResults.list[i * 8];
@@ -91,6 +81,32 @@ $("#search-button").on("click", function (event) {
             }
         })
     });
+}
+//Adding event listener for when the button with the ID of 'search-button' is clicked.
+$("#search-button").on("click", function (event) {
+    event.preventDefault();
+
+    //Getting the value of what the user inputs by targetting the ID of the search input area.
+    let city = $("#search-input").val().trim();
+
+    //To push last location entered in the search input to the list of popular locations till browser is refreshed.
+    popularLocations.unshift(city);
+    renderButtons();
+
+    //Using AJAX to make an API call requesting longitude and latitude of the location inputted by the user.
+   weatherSearch(city) 
+})
+
+$("#history").on("click", function (event) {
+   
+    if(event.target.className !== "location-history") {
+        return
+    } else {
+        let city = event.target.dataset.name
+        weatherSearch(city)
+    }
+    
+
 })
 
 renderButtons();
