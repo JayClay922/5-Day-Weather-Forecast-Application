@@ -61,6 +61,32 @@ $("#search-button").on("click", function (event) {
             <p>Wind Speed:  <span id="windSpeed">${windSpeed}</span> KPH</p>
             <p>Humidity:  <span id="humidity">${humidity}</span>%</p>
             `)
+
+            for(let i = 0; i < 5; i++) {
+                let day = weatherResults.list[i * 8];
+                let date = moment(day.dt_txt). format("DD/MM/YYYY");
+                let iconCode = day.weather[0].icon;
+                let iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
+                let temperature = parseFloat((day.main.temp - 273.15).toFixed(1));
+                let humidity = day.main.humidity;
+                let windSpeed = day.wind.speed;
+
+                let cardHTML = `
+                <div class="card">
+                  <div class="cardHeader">
+                    <h5>${date}</h5>
+                  </div>
+                  <div class="cardBody">
+                    <img src="${iconUrl}" alt="Weather Icon">
+                    <p>Temperature: ${temperature} °C</p>
+                    <p>Wind Speed: ${windSpeed} KPH</P>
+                    <p>Humidity: ${humidity}%</p>
+                  </div>
+                </div>
+                `;
+
+                $("#forecast").append(cardHTML);
+            }
         })
     });
 })
