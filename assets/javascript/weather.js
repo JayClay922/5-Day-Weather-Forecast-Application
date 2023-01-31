@@ -1,6 +1,6 @@
 //Array of popular locations.
 let popularLocations = ["New York", "London", "Paris", "Tokyo"];
-let cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || []
+// let cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || []
 
 //Function for displaying the locations buttons
 function renderButtons() {
@@ -122,7 +122,10 @@ $("#history").on("click", function (event) {
 
 })
 
-renderButtons();
+$(document).ready(function() {
+    renderButtons();
+  });
+  
 
 
 
