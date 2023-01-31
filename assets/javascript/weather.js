@@ -54,6 +54,7 @@ function weatherSearch(city) {
 
             $(".forecastHeading").show();
 
+            $("#forecast").empty()
             for(let i = 0; i < 5; i++) {
                 let day = weatherResults.list[i * 8];
                 let date = moment(day.dt_txt). format("DD/MM/YYYY");
@@ -78,7 +79,7 @@ function weatherSearch(city) {
                 </div>
                 `;
 
-                $("#forecast").empty()
+
 
                 $("#forecast").append(cardHTML);
             }
