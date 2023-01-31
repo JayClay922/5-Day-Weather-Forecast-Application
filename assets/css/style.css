@@ -44,10 +44,11 @@
 }
 
 #today {
-    border: 1.5px solid;
+    border: 1.2px solid;
     width: 885px;
     
 }
+
 
 .forecastHeading {
     margin-top: 1rem;
@@ -74,3 +75,16 @@
 .weather-header {
     background: linear-gradient(to bottom, lightblue, darkblue);
 }
+
+@media (max-width: 767px) {
+
+    #today {
+        width: 100%;
+        margin: 0;
+      }
+    .card {
+      width: 100%;
+      display: block;
+      margin: 0;
+    }
+  }
