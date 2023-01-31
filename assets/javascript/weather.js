@@ -63,6 +63,7 @@ function weatherSearch(city) {
                 let humidity = day.main.humidity;
                 let windSpeed = day.wind.speed;
 
+                
                 let cardHTML = `
                 <div class="card">
                   <div class="cardHeader">
@@ -76,6 +77,8 @@ function weatherSearch(city) {
                   </div>
                 </div>
                 `;
+
+                $("#forecast").empty()
 
                 $("#forecast").append(cardHTML);
             }
