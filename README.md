@@ -47,6 +47,38 @@ This project was certainly challenging, in the sense with requesting weather inf
 5. Lastly when the user clicks a city in the search history they are presented with the current and future weather conditions again.
 
 ## Screenshots
+1. The browser showing the weather dashboard without any information.
+ ![weatherDashboard-browser](./assets/screenshots/weatherDashboard-browser.png)
+
+2. The code in HTML showing the weather dashboard.
+ ![weatherDashboard-code](./assets/screenshots/weatherDashboard-code.png)
+
+3. The current and future conditions being displayed in the browser when the user searches for a city.
+ ![current-futureConditions-browser](./assets/screenshots/current-futureConditions-browser.png)
+
+4. The code for the current and future conditions.
+ ![current-futureConditions-code](./assets/screenshots/current-futureConditions-code.png)
+
+5. API Call to get the longitude and latitude and then another API Call to get the weather details of location using the results of the API Call for longitude and latitude.
+ ![APICalls-code](./assets/screenshots/APICalls-code.png)
+
+6. Current conditions displayed in the browser with the specified information asked for.
+ ![currenConditions-browser](./assets/screenshots/currentConditions-browser.png)
+
+7. The code for how the current conditions are displayed.
+ ![currentConditions-code](./assets/screenshots/currentConditions-code.png)
+
+8. Future conditions displayed in the browser.
+ ![futureConditions-browser](./assets/screenshots/futureConditions-browser.png)
+
+9. Code for future conditions.
+ ![futureConditions-code](./assets/screenshots/futureConditions-code.png)
+
+10. Search history results of Dagenham. Dagenham was searched previously and now is saved as a button in the search history.
+ ![searchHistory-browser](./assets/screenshots/history-browser.png)
+
+11. Here is the code for how the button are created and then saved to local storage and then retrieved.
+ ![buttonCreate-code](./assets/screenshots/saveToHistory-code.png)
 
 
 ## License
