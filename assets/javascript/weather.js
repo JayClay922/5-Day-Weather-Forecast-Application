@@ -122,9 +122,15 @@ $("#history").on("click", function (event) {
 
 })
 
-$(document).ready(function() {
-    renderButtons();
-  });
+function initSearchHistory() {
+    var storedHistory = localStorage.getItem('popularLocations');
+    if (storedHistory) {
+      popularLocations = JSON.parse(storedHistory);
+    }
+      renderButtons();
+  }
+  
+  initSearchHistory();
   
 
 
