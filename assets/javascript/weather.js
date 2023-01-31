@@ -4,7 +4,15 @@ let cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || []
 
 //Function for displaying the locations buttons
 function renderButtons() {
-    $("#history").empty()
+    $("#history").empty();
+
+    if(!localStorage.getItem("popularLocations")) {
+        localStorage.setItem("popularLocations", JSON.stringify(popularLocations))
+    }
+
+    let locations = JSON.parse(localStorage.getItem("popularLocations"));
+    console.log(locations)
+
     for (i = 0; i < popularLocations.length; i++) {
         let history = $("<button>");
         history.addClass("location-history");
@@ -95,6 +103,7 @@ $("#search-button").on("click", function (event) {
 
     //To push last location entered in the search input to the list of popular locations till browser is refreshed.
     popularLocations.unshift(city);
+    localStorage.setItem("popularLocations", JSON.stringify(popularLocations))
     renderButtons();
 
     //Using AJAX to make an API call requesting longitude and latitude of the location inputted by the user.
